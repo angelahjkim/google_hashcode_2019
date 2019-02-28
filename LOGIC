@@ -1,0 +1,88 @@
+PROBLEM:
+
+data given:
+
+	photos (two types)
+		horizontal
+		vertical
+	tags associated with each photo
+
+task:
+
+	arrange photos into a slideshow that is as "interesting" as possible
+	slideshow: contains either 1 horizontal photo or 2 vertical photos
+		all tags from photo(s) without duplicates
+		must containe at least one slide
+		each photo may only be used either once or not at all
+
+input data set:
+	plain text exclusively ASCII characters with lines terminated with single \n
+		first line: number of photos in collection (N)
+		each successive line (line [1] to line [N - 1])
+			each "string" is delimited by a space
+			first "string" describes whether the photo is Horizontal or Vertical
+			second "string" describes the number of tags (T)
+			each successive "string" (word[2] to word[T - 1]) describe a tag
+
+output file:
+	first line: single integer describing number of slides (S)
+	(S - 1) lines: one or two integers (describing which photo is in the slide)
+
+
+"INTERESTING"
+transitions between slides
+continuity and commonality as well as uniqueness
+	interest factor: minimum of:
+		commonality: number of common tags between the two photos
+		uniqueness: number of unique tags in first photo
+					number of unique tags in second photo
+
+-------------------------------------------------------------------------------------------------
+SOURCE CODE outline
+
+MAIN.C
+
+typedef struct s_dataset
+{
+    int num_phots;
+    char **photo;
+    char orient;
+    int num_tags;
+    char **tags;
+
+}       t_dataset;
+
+t_dataset     data_set[4];
+
+i = 0;
+while (i < 4)
+{
+    data_set[i] = 
+}
+
+int main(int argc, char** argv) {
+    typedef struct{
+        char* firstName;
+        char* lastName;
+        int day;
+        int month;
+        int year;
+
+    }STUDENT;
+
+    int numStudents=3;
+    int x;
+    STUDENT* students = malloc(numStudents * sizeof *students);
+    for (x = 0; x < numStudents; x++){
+        students[x].firstName=(char*)malloc(sizeof(char*));
+        scanf("%s",students[x].firstName);
+        students[x].lastName=(char*)malloc(sizeof(char*));
+        scanf("%s",students[x].lastName);
+        scanf("%d",&students[x].day);
+        scanf("%d",&students[x].month);
+        scanf("%d",&students[x].year);
+    }
+
+char *ft_getinput()		// read from file into a string that we can use to assign data given
+	open
+	read
